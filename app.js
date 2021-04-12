@@ -2,8 +2,12 @@ const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+
+// allow cors
+app.use(cors());
 
 const URI = 'mongodb+srv://<user>:<password>@<host>/<dbName>?retryWrites=true&w=majority';
 mongoose.connect(URI, {
